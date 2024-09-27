@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
-import logo from "./assets/hartasplastas.png";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Importar elementos de react-router-dom
+import ArtList from "./Components/ArtList"; // Importar el componente ArtList
+import ArtForm from "./Components/ArtForm"; // Importar el componente ArtForm
 import whatsappLogo from "./assets/whatsapp.png";
 import tiktokLogo from "./assets/tiktok.png";
 import instagramLogo from "./assets/instagram.png";
@@ -19,56 +21,78 @@ function App() {
         "https://fichas-obras-default-rtdb.firebaseio.com/festivalTerror/.json"
       );
       const data = await response.json();
-      const worksArray = Object.keys(data).map((key) => (key, data[key]));
+      const worksArray = Object.keys(data).map((key) => data[key]);
       setWorks([...worksArray]);
-      console.log(worksArray);
     };
     getAllWorks();
   }, []);
 
   return (
-    <>
+    <Router>
       <div className="container mx-auto">
-        {works.length &&
-          works.map(
-            ({ anio, autor, enVenta, medidas, tecnica, titulo, socials }) => {
-              return (
-                <div className="grid grid-cols-2 gap-4 w-[16cm] border border-black p-4">
-                  <div className="ps-4 flex flex-col gap-4">
-                    <p>
-                      Título: <span className="font-bold">"{titulo}"</span>
-                    </p>
-                    <p>Autor: {autor}</p>
-                    <p>Técnica: {tecnica}</p>
-                    <p>Medidas: {medidas}</p>
-                    <p>Año: {anio}</p>
-                    {enVenta && <p className="font-bold">$</p>}
-                    {socials && (
-                      <div className="flex flex-col gap-4">
-                        {socials.map((social) => {
-                          return (
-                            <div className="flex items-center gap-2">
-                              <img
-                                src={socialIconsMap[social.network]}
-                                alt=""
-                                className="w-[0.5cm]"
-                              />
-                              <span>{social.value}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex items-end justify-end">
-                    <img src={logo} alt="" className="w-[3cm]" />
-                  </div>
-                </div>
-              );
-            }
-          )}
+        {/* Barra de navegación */}
+        <nav className="p-4 bg-gray-200 flex justify-between mb-8 print:hidden">
+          {/* Añadimos la clase 'print:hidden' para ocultar durante la impresión */}
+          <Link to="/" className="text-blue-500 font-bold text-xl">
+            Home (Art List)
+          </Link>
+          <Link to="/artForm" className="text-blue-500 font-bold text-xl">
+            Art Form
+          </Link>
+        </nav>
+
+        {/* Configuración de las rutas */}
+        <Routes>
+          <Route
+            path="/"
+            element={<ArtList works={works} socialIconsMap={socialIconsMap} />}
+          />
+          <Route path="/artForm" element={<ArtForm />} />
+        </Routes>
       </div>
-    </>
+
+      {/* Estilo CSS global para manejo de impresión */}
+      <style jsx global>{`
+        @media print {
+          /* Ocultar la barra de navegación en la impresión */
+          nav {
+            display: none;
+          }
+
+          /* Ajustes adicionales de impresión */
+          .container {
+            width: 21cm;
+            margin: 0 auto;
+          }
+
+          .print-page {
+            display: flex;
+            flex-direction: column; /* Mantener la columna */
+            max-height: 27.94cm; /* Altura de la hoja carta */
+            page-break-after: always; /* Romper al final de cada hoja */
+            margin-bottom: 1cm; /* Espacio entre hojas */
+          }
+
+          .art-card {
+            width: 100%;
+            max-height: 8.5cm; /* Limitar la altura para evitar cortes */
+            margin-bottom: 0;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+
+          /* Asegurar que no se corte el contenido de la hoja */
+          .print-page:after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            visibility: hidden;
+            page-break-after: always;
+          }
+        }
+      `}</style>
+    </Router>
   );
 }
 
