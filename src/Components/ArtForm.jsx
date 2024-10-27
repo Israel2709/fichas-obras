@@ -53,7 +53,7 @@ function ArtForm() {
   // Enviar las obras al endpoint
   const handleSave = async () => {
     const endpoint =
-      "https://fichas-obras-default-rtdb.firebaseio.com/festivalTerror/.json";
+      "https://fichas-obras-default-rtdb.firebaseio.com/rutaParanormal/.json";
 
     for (const obra of obras) {
       // Formatear las redes sociales

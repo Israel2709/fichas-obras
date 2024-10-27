@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; // Importar elementos de react-router-dom
-import ArtList from "./Components/ArtList"; // Importar el componente ArtList
-import ArtForm from "./Components/ArtForm"; // Importar el componente ArtForm
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ArtList from "./Components/ArtList";
+import ArtForm from "./Components/ArtForm";
 import whatsappLogo from "./assets/whatsapp.png";
 import tiktokLogo from "./assets/tiktok.png";
 import instagramLogo from "./assets/instagram.png";
@@ -18,10 +18,11 @@ function App() {
   useEffect(() => {
     const getAllWorks = async () => {
       const response = await fetch(
-        "https://fichas-obras-default-rtdb.firebaseio.com/festivalTerror/.json"
+        "https://fichas-obras-default-rtdb.firebaseio.com/rutaParanormal/.json"
       );
       const data = await response.json();
       const worksArray = Object.keys(data).map((key) => data[key]);
+
       setWorks([...worksArray]);
     };
     getAllWorks();

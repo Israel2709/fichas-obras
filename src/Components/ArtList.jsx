@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/hartasplastas.png"; // Ajusta la ruta según tu estructura de archivos
+import logo from "../assets/artis-noxes-logo.svg"; // Ajusta la ruta según tu estructura de archivos
 
 const ArtList = ({ works, socialIconsMap }) => {
   return (
