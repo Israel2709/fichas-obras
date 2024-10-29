@@ -9,7 +9,16 @@ const ArtList = ({ works, socialIconsMap }) => {
         {works.length > 0 &&
           works.map(
             (
-              { anio, autor, enVenta, medidas, tecnica, titulo, socials },
+              {
+                anio,
+                autor,
+                enVenta,
+                medidas,
+                tecnica,
+                titulo,
+                socials,
+                precio,
+              },
               index
             ) => {
               return (
@@ -30,7 +39,11 @@ const ArtList = ({ works, socialIconsMap }) => {
                     <p>Técnica: {tecnica}</p>
                     <p>Medidas: {medidas}</p>
                     <p>Año: {anio}</p>
-                    {enVenta && <p className="font-bold">$</p>}
+                    {enVenta && (
+                      <p className="font-bold">
+                        $ {precio && `${precio}.00 MXN`}
+                      </p>
+                    )}
                     {socials && (
                       <div className="flex flex-col gap-4">
                         {socials.map((social, socialIndex) => (

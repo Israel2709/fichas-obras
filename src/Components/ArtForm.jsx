@@ -39,6 +39,7 @@ function ArtForm() {
         medidas: "",
         enVenta: false,
         socials: { instagram: "", whatsapp: "", tiktok: "" },
+        precio: "",
       },
     ]);
   };
@@ -73,6 +74,7 @@ function ArtForm() {
         medidas: obra.medidas,
         enVenta: obra.enVenta,
         socials: formattedSocials.length > 0 ? formattedSocials : [],
+        precio: obra.precio,
       };
 
       try {
@@ -170,6 +172,19 @@ function ArtForm() {
                 }
               />
             </div>
+            {/*Precio*/}
+            {obra.enVenta && (
+              <div>
+                <label className="block font-medium">Precio:</label>
+                <input
+                  type="text"
+                  className="mt-1 block w-full px-4 py-2 border rounded-md"
+                  onChange={(e) =>
+                    handleChange(index, "precio", e.target.value)
+                  }
+                />
+              </div>
+            )}
           </div>
 
           {/* Redes Sociales */}
