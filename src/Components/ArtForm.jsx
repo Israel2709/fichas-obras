@@ -54,7 +54,7 @@ function ArtForm() {
   // Enviar las obras al endpoint
   const handleSave = async () => {
     const endpoint =
-      "https://fichas-obras-default-rtdb.firebaseio.com/rutaParanormal/.json";
+      "https://fichas-obras-default-rtdb.firebaseio.com/restosVisuales/.json";
 
     for (const obra of obras) {
       // Formatear las redes sociales

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/artis-noxes-logo.svg"; // Ajusta la ruta según tu estructura de archivos
+import logo from "../assets/logo-restos-visuales.png"; // Ajusta la ruta según tu estructura de archivos
 
 const ArtList = ({ works, socialIconsMap }) => {
   return (
@@ -63,7 +63,7 @@ const ArtList = ({ works, socialIconsMap }) => {
                     )}
                   </div>
                   <div className="flex items-end justify-end">
-                    <img src={logo} alt="Logo" className="w-[3cm]" />
+                    <img src={logo} alt="Logo" className="w-[5cm]" />
                   </div>
                 </div>
               );

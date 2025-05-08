@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const getAllWorks = async () => {
       const response = await fetch(
-        "https://fichas-obras-default-rtdb.firebaseio.com/rutaParanormal/.json"
+        "https://fichas-obras-default-rtdb.firebaseio.com/restosVisuales/.json"
       );
       const data = await response.json();
       const worksArray = Object.keys(data).map((key) => data[key]);
