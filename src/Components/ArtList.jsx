@@ -1,5 +1,8 @@
 import React from "react";
 import logo from "../assets/logo-restos-visuales.png"; // Ajusta la ruta según tu estructura de archivos
+import qrAle from "../assets/qrs/ale.jpeg";
+import qrDavid from "../assets/qrs/david.jpeg";
+import qrLuisa from "../assets/qrs/luisa.jpeg";
 
 const ArtList = ({ works, socialIconsMap }) => {
   return (
@@ -62,7 +65,16 @@ const ArtList = ({ works, socialIconsMap }) => {
                       </div>
                     )}
                   </div>
-                  <div className="flex items-end justify-end">
+                  <div className="flex items-end justify-end flex-col">
+                    {autor === "David Ortiz" && (
+                      <img src={qrDavid} alt="" className="w-[5cm]" />
+                    )}
+                    {autor === "Luisa González" && (
+                      <img src={qrLuisa} alt="" className="w-[5cm]" />
+                    )}
+                    {autor === "Alejandro" && (
+                      <img src={qrAle} alt="" className="w-[5cm]" />
+                    )}
                     <img src={logo} alt="Logo" className="w-[5cm]" />
                   </div>
                 </div>
