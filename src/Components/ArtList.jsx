@@ -35,15 +35,16 @@ const ArtList = ({ works, socialIconsMap }) => {
                 >
                   {/* Contenido de la ficha */}
                   <div className="ps-4 flex flex-col gap-2">
-                    <p>
-                      Título: <span className="font-bold">"{titulo}"</span>
+                    <p className="text-xl">
+                      Título:{" "}
+                      <span className="font-bold text-xl">"{titulo}"</span>
                     </p>
-                    <p>Autor: {autor}</p>
-                    <p>Técnica: {tecnica}</p>
-                    <p>Medidas: {medidas}</p>
-                    <p>Año: {anio}</p>
+                    <p className="text-xl">Autor: {autor}</p>
+                    <p className="text-xl">Técnica: {tecnica}</p>
+                    <p className="text-xl">Medidas: {medidas}</p>
+                    <p className="text-xl">Año: {anio}</p>
                     {enVenta && (
-                      <p className="font-bold">
+                      <p className="font-bold text-xl">
                         $ {precio && `${precio}.00 MXN`}
                       </p>
                     )}
