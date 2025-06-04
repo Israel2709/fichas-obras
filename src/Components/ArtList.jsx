@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo-restos-visuales.png"; // Ajusta la ruta según tu estructura de archivos
+import logo from "../assets/logo-vuelta-al-mundo.jpg"; // Ajusta la ruta según tu estructura de archivos
 import qrAle from "../assets/qrs/ale.jpeg";
 import qrDavid from "../assets/qrs/david.jpeg";
 import qrLuisa from "../assets/qrs/luisa.jpeg";
