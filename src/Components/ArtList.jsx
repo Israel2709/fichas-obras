@@ -80,7 +80,7 @@ const ArtList = ({ works, socialIconsMap }) => {
                       <p class="text-4xl font-pirata custom-shadow text-center">
                         La vuelta <br />
                         al mundo <br />
-                        en {works.length} obra{works.lenght > 1 && "s"}
+                        en {works.length} obra{works.length > 1 && "s"}
                       </p>
                       <img src={logo} alt="Logo" className="w-[5cm]" />
                     </div>
