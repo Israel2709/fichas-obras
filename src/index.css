@@ -9,7 +9,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'pirata';
+  src: url('./assets/fonts/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *{
   font-family: 'Calibri', sans-serif;
   font-size: 12pt;
+}
+
+.font-pirata{
+  font-family:'pirata';
+  text-shadow: 2px 2px #5a5a5a99, 4px 4px #b0b0b099;
 }

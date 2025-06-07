@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo-vuelta-al-mundo.jpg"; // Ajusta la ruta según tu estructura de archivos
+import logo from "../assets/logo-vuelta-al-mundo.png"; // Ajusta la ruta según tu estructura de archivos
 import qrAle from "../assets/qrs/ale.jpeg";
 import qrDavid from "../assets/qrs/david.jpeg";
 import qrLuisa from "../assets/qrs/luisa.jpeg";
@@ -76,7 +76,14 @@ const ArtList = ({ works, socialIconsMap }) => {
                     {autor === "Alejandro" && (
                       <img src={qrAle} alt="" className="w-[5cm]" />
                     )}
-                    <img src={logo} alt="Logo" className="w-[5cm]" />
+                    <div class="flex items-center gap-4">
+                      <p class="text-4xl font-pirata custom-shadow text-center">
+                        La vuelta <br />
+                        al mundo <br />
+                        en {works.length} obra{works.lenght > 1 && "s"}
+                      </p>
+                      <img src={logo} alt="Logo" className="w-[5cm]" />
+                    </div>
                   </div>
                 </div>
               );
