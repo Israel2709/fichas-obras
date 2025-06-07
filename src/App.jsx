@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+/*Components*/
 import ArtList from "./Components/ArtList";
 import ArtForm from "./Components/ArtForm";
+import AuthorManager from "./Components/AuthorManager";
+
+/*Images*/
 import whatsappLogo from "./assets/whatsapp.png";
 import tiktokLogo from "./assets/tiktok.png";
 import instagramLogo from "./assets/instagram.png";
@@ -18,10 +23,10 @@ function App() {
   useEffect(() => {
     const getAllWorks = async () => {
       const response = await fetch(
-        "https://fichas-obras-default-rtdb.firebaseio.com/vueltaAlMundo/.json"
+        "https://fichas-obras-default-rtdb.firebaseio.com/obras/.json"
       );
       const data = await response.json();
-      const worksArray = Object.keys(data).map((key) => data[key]);
+      const worksArray = data ? Object.keys(data).map((key) => data[key]) : [];
 
       setWorks([...worksArray]);
     };
@@ -40,6 +45,9 @@ function App() {
           <Link to="/artForm" className="text-blue-500 font-bold text-xl">
             Art Form
           </Link>
+          <Link to="/autores" className="text-blue-500 font-bold text-xl">
+            Autores
+          </Link>
         </nav>
 
         {/* Configuración de las rutas */}
@@ -49,6 +57,7 @@ function App() {
             element={<ArtList works={works} socialIconsMap={socialIconsMap} />}
           />
           <Route path="/artForm" element={<ArtForm />} />
+          <Route path="/autores" element={<AuthorManager />} />
         </Routes>
       </div>
 
